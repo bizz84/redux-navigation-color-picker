@@ -7,9 +7,15 @@ import ChooseColorPage from './ChooseColorPage';
 
 export const AppNavigator = StackNavigator({
     Main: { screen: MainPage },
-    ChooseColor: { screen: ChooseColorPage }
+    ChooseColor: { 
+        screen: ChooseColorPage, 
+        navigationOptions: {
+            headerLeft: null,
+        } 
+    }
 }, {
     initialRouteName: 'Main',
+    mode: 'modal'
 });
   
 const AppWithNavigationState = ({ dispatch, nav }) => (
