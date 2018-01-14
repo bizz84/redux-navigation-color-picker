@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { colorChanged } from '../actions/ColorChangedAction.js';
 import { COLORS } from '../state/Colors.js';
 
 class ChooseColorPage extends Component {
 
     onSelectColor(colorName) {
+        this.props.colorChanged({ colorName });
         this.props.navigation.goBack();
     }
 
@@ -25,4 +27,8 @@ class ChooseColorPage extends Component {
     }
 }
 
-export default ChooseColorPage;
+const mapStateToProps = state => ({ });
+
+export default connect(mapStateToProps, {
+    colorChanged,
+})(ChooseColorPage);

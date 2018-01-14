@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
+import { connect } from 'react-redux';
 import { COLORS } from '../state/Colors.js';
 
 class MainPage extends Component {
@@ -9,7 +10,7 @@ class MainPage extends Component {
     }
 
     selectedColor() {
-        const colorName = 'RED';
+        const { colorName } = this.props;
         return COLORS[colorName].hexCode;
     }
 
@@ -27,4 +28,9 @@ class MainPage extends Component {
     }
 }
 
-export default MainPage;
+const mapStateToProps = state => {
+    return { colorName: state.color.colorName };
+};
+
+export default connect(mapStateToProps)(MainPage);
+
