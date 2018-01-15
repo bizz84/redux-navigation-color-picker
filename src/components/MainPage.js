@@ -6,7 +6,7 @@ import { COLORS } from '../state/Colors.js';
 class MainPage extends Component {
 
     onChooseColor() {
-        this.props.navigation.navigate('ChooseColor', {});
+        this.props.navigation.navigate('ChooseColor');
     }
 
     selectedColor() {
